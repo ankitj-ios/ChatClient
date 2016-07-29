@@ -16,9 +16,12 @@ class LoginViewController: UIViewController {
     
     @IBAction func onLogin(sender: AnyObject) {
         print("on login ... ")
-        let username = emailTextField.text!
-        let password = passwordTextField.text!
-        
+//        let username = emailTextField.text!
+//        let password = passwordTextField.text!
+
+        let username = "ajasuja1"
+        let password = "password"
+
         PFUser.logInWithUsernameInBackground(username, password: password) { (user: PFUser?, error: NSError?) in
             if user != nil {
                 print("login successful ...  \(user)" )
