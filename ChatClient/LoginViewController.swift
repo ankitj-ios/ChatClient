@@ -22,6 +22,7 @@ class LoginViewController: UIViewController {
         PFUser.logInWithUsernameInBackground(username, password: password) { (user: PFUser?, error: NSError?) in
             if user != nil {
                 print("login successful ...  \(user)" )
+                self.performSegueWithIdentifier("ChatSegue", sender: nil)
             } else {
                 print("login failed ... ")
                 self.showAlertOnError("Login Failed", error: error!)
@@ -65,12 +66,17 @@ class LoginViewController: UIViewController {
             if isSuccessful {
                 print("sign up successful ... ")
                 print(user)
+                self.performSegueWithIdentifier("ChatSegue", sender: nil)
             } else {
                 print("sign up failed ... \n")
                 self.showAlertOnError("SignUp Failed", error: error!)
+                
             }
         }
         
     }
     
+//    override func performSegueWithIdentifier(identifier: String, sender: AnyObject?) {
+//        <#code#>
+//    }
 }
